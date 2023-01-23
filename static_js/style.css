@@ -5,6 +5,7 @@
 .controls-container {
     margin:2rem;
     max-width:100px;
+    padding:2rem;
 }
 
 .canvas{
