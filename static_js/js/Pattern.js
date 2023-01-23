@@ -73,6 +73,7 @@ export class SpiralPattern extends Pattern {
 }
 
 function sanitizePoint(p) {
+    return p;
     p.x = Math.max(0, Math.min(2, p.x));
     p.y = Math.max(0, Math.min(2, p.y));
     return p;

@@ -1,9 +1,9 @@
 import * as Pattern from "./Pattern.js";
 
 export class Figure {
-    constructor(points_local, color, values) {
-        this.points = points_local;
-        this.color = color;
+    constructor(points, values) {
+        this.points = points;
+        this.color = values.color;
         this.resolution = values.resolution;
         this.origin = values.origin;
         this.scale = values.scale;

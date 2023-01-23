@@ -1,8 +1,7 @@
 import {Figure} from './Figure.js';
 
-export class RepeatedFigure extends Figure {
-    constructor(points, color, values) {
-        super(points, color, values);
+export class RepeatedFigure {
+    constructor(values) {
         this.figures=[];
         this.values = values;
     }
@@ -13,9 +12,14 @@ export class RepeatedFigure extends Figure {
         }
     }
 
-    generateRotatedFigures = function(num_copies, origin, mirrored){
+    generateRotatedFigures = function(num_copies, origin){
         var angle = 2 * Math.PI / num_copies;
         var figures = [];
+
+        if(this.values.single_figure){
+            num_copies = 1;
+        }
+
         for (var i = 0; i < num_copies; i++) {
             var points = [];
             for (var j = 0; j < this.points_local.length; j++) {
@@ -24,7 +28,7 @@ export class RepeatedFigure extends Figure {
             if(this.values.mirrored && i%2==1){
                 points.reverse();
             }
-            figures.push(new Figure(points, this.color, this.values));
+            figures.push(new Figure(points, this.values));
         }
         return figures;
     }
@@ -55,8 +59,8 @@ export class RepeatedFigure extends Figure {
 }
 
 export class RepeatedTriangle extends RepeatedFigure {
-    constructor(points, color, values) {
-        super(points, color, values);
+    constructor(values) {
+        super(values);
         this.points_local = [
             new paper.Point(0, 1),
             new paper.Point(1, 1),
@@ -67,8 +71,8 @@ export class RepeatedTriangle extends RepeatedFigure {
 }
 
 export class RepeatedSquare extends RepeatedFigure {
-    constructor(points, color, values) {
-        super(points, color, values);
+    constructor(values) {
+        super(values);
         this.points_local = [
             new paper.Point(0, 0),
             new paper.Point(0, 1),
@@ -79,6 +83,22 @@ export class RepeatedSquare extends RepeatedFigure {
     }
 }
 
+export class RepeatedHexagon extends RepeatedFigure {
+    constructor(values) {
+        super(values);
+        this.points_local = generateRegularPoligon(6, new paper.Point(1,1), new paper.Point(0.5,0.5));
+        this.figures = this.generateRotatedFigures(3, new paper.Point(1,1));
+    }
+}
+
+function generateRegularPoligon(num_sides, point, origin){
+    var angle = 2 * Math.PI / num_sides;
+    var points = [];
+    for (var i = 0; i < num_sides; i++) {
+        points.push(getRotatedPoint(point, origin, angle * i));
+    }
+    return points;
+}
 
 function getRotatedPoint(p, origin, angle) {
     var x = p.x - origin.x;
