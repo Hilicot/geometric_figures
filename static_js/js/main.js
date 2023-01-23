@@ -21,6 +21,7 @@ function draw(values) {
     tool.onMouseDown = (event) => figure.onMouseDown(event);
     tool.onMouseMove = (event) => figure.onMouseMove(event);
     tool.onMouseDrag = (event) => figure.onMouseDrag(event);
+    tool.onMouseUp = (event) => figure.onMouseUp(event);
 
     // Draw the view now:
     paper.view.draw();

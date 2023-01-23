@@ -21,7 +21,7 @@ export class Figure {
             path.add(this.toGlobalSpace(this.points[i]));
         }
         path.closed = true;
-        paper.view.draw();
+        
     }
 
     onMouseDown = function (event) {
@@ -50,9 +50,13 @@ export class Figure {
             this.points[this.segment.index] = this.toLocalSpace(this.segment.point);
             project.activeLayer.removeChildren();
             this.draw();
+            this.pattern.drawPattern();
         } else if (this.path && false) {
             this.origin += event.delta;
         }
+    }
+
+    onMouseUp = function (event) {
     }
 
     toGlobalSpace = function (point) {

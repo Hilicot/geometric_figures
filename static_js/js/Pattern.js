@@ -51,8 +51,9 @@ export class SpiralPattern extends Pattern {
     drawPattern = function () {
         var figure = this.figure;
         
-        for (var iter = 0; iter < figure.resolution * 2; iter++) {
-            var o = Math.min(iter*5 / figure.resolution, figure.resolution-1);
+        var multiplier = 10;
+        for (var iter = 0; iter < figure.resolution*(1+1/multiplier) ; iter++) {
+            var o = Math.min(iter *multiplier/ figure.resolution, figure.resolution-1);
 
             for (var i = 0; i < figure.points.length; i++) {
                 var p = this.temp_points[i];
