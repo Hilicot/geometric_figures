@@ -10,6 +10,7 @@ var scale_slider = document.getElementById("scale_slider");
 var scale_label = document.getElementById("scale_label");
 var pattern_select = document.getElementById("pattern_select");
 var figure_select = document.getElementById("figure_select");
+var mirrored_checkbox = document.getElementById("mirrored_checkbox");
 
 export function manageUI(values, draw) {
 
@@ -20,7 +21,7 @@ export function manageUI(values, draw) {
         addSelectOption(pattern_select, key);
     }
     
-    figure_select.value = "Mirrored Square";
+    figure_select.value = "Square";
     pattern_select.value = "spiral";
 
 
@@ -51,6 +52,11 @@ export function manageUI(values, draw) {
         setValues(values);
         draw(values);
     }
+    mirrored_checkbox.onchange = function () {
+        values.mirrored = this.checked;
+        setValues(values);
+        draw(values);
+    }
 
     return values;
 }
@@ -58,6 +64,7 @@ export function manageUI(values, draw) {
 function setValues(values) {
     values = setPattern(values);
     values = setFigure(values);
+    values = setMirrored(values);
     values = setResolution(values);
     values = setOffset(values);
     values = setScale(values);
@@ -98,10 +105,15 @@ function setPattern(values) {
     return values;
 }
 
+
+function setMirrored(values) {
+    values.mirrored = mirrored_checkbox.checked;
+    return values;
+}
+
 var figure_types = {
     "Triangle": RepeatedFigure.RepeatedTriangle,
     "Square": RepeatedFigure.RepeatedSquare,
-    "Mirrored Square": RepeatedFigure.MirroredRepeatedSquare,
 }
 
 var pattern_types = {

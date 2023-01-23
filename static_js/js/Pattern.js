@@ -49,7 +49,6 @@ export class SpiralPattern extends Pattern {
     }
     drawPattern = function () {
         var figure = this.figure;
-        console.log(this.temp_points)
         var multiplier = Math.max(figure.values.offset, 1);
         for (var iter = 0; iter < figure.resolution *2* (1 + 1 / multiplier); iter++) {
             var o = Math.min(iter * multiplier / figure.resolution, figure.resolution - 1);

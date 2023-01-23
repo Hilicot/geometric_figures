@@ -4,6 +4,7 @@ export class RepeatedFigure extends Figure {
     constructor(points, color, values) {
         super(points, color, values);
         this.figures=[];
+        this.values = values;
     }
 
     draw() {
@@ -20,10 +21,8 @@ export class RepeatedFigure extends Figure {
             for (var j = 0; j < this.points_local.length; j++) {
                 points.push(getRotatedPoint(this.points_local[j], origin, angle * i));
             }
-            if(mirrored && i%2==1){
-                console.log("before" ,points)
+            if(this.values.mirrored && i%2==1){
                 points.reverse();
-                console.log("after", points)
             }
             figures.push(new Figure(points, this.color, this.values));
         }
@@ -77,20 +76,6 @@ export class RepeatedSquare extends RepeatedFigure {
             new paper.Point(1, 0)
         ];
         this.figures = this.generateRotatedFigures(4, new paper.Point(1,1));
-    }
-}
-
-export class MirroredRepeatedSquare extends RepeatedSquare {
-
-    constructor(points, color, values) {
-        super(points, color, values);
-        this.points_local = [
-            new paper.Point(0, 0),
-            new paper.Point(0, 1),
-            new paper.Point(1, 1),
-            new paper.Point(1, 0)
-        ];
-        this.figures = this.generateRotatedFigures(4, new paper.Point(1,1), true);
     }
 }
 
