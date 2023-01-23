@@ -45,7 +45,7 @@ export class Figure {
     }
 
     onMouseDrag = function (event) {
-        if (this.segment) {
+        if (this.segment && false) {
             this.segment.point = sumCoords(this.segment.point, event.delta);
             this.points[this.segment.index] = this.toLocalSpace(this.segment.point);
             project.activeLayer.removeChildren();

@@ -18,14 +18,13 @@ export class SimplePattern extends Pattern {
     drawPattern = function () {
         var figure = this.figure;
         var o = parseInt(figure.values.offset);
-        console.log(o);
         for (var i = 0; i < figure.points.length; i++) {
             var p1 = figure.points[i];
             var p2 = figure.points[(i + 1) % figure.points.length];
             var p3 = figure.points[(i + 2) % figure.points.length];
             for (var j = 0; j < figure.resolution - o; j++) {
-                var pstart = this.getBetweenPoint(p1, p2, (j + o) / figure.resolution);
-                var pend = this.getBetweenPoint(p2, p3, j / figure.resolution);
+                var pstart = this.getBetweenPoint(p1, p2, Math.max(j + o,0) / figure.resolution);
+                var pend = this.getBetweenPoint(p2, p3, Math.min(j / figure.resolution, 1));
                 var line = new paper.Path();
                 line.strokeColor = figure.color;
                 line.add(figure.toGlobalSpace(pstart));
@@ -50,9 +49,9 @@ export class SpiralPattern extends Pattern {
     }
     drawPattern = function () {
         var figure = this.figure;
-
+        console.log(this.temp_points)
         var multiplier = Math.max(figure.values.offset, 1);
-        for (var iter = 0; iter < figure.resolution * (1 + 1 / multiplier); iter++) {
+        for (var iter = 0; iter < figure.resolution *2* (1 + 1 / multiplier); iter++) {
             var o = Math.min(iter * multiplier / figure.resolution, figure.resolution - 1);
 
             for (var i = 0; i < figure.points.length; i++) {
@@ -75,7 +74,7 @@ export class SpiralPattern extends Pattern {
 }
 
 function sanitizePoint(p) {
-    p.x = Math.max(0, Math.min(1, p.x));
-    p.y = Math.max(0, Math.min(1, p.y));
+    p.x = Math.max(0, Math.min(2, p.x));
+    p.y = Math.max(0, Math.min(2, p.y));
     return p;
 }

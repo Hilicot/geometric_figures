@@ -15,26 +15,36 @@
 </head>
 
 <body style="background-color:#282c34;">
-    <div class=" controls-container">
-        <div class="container">
-            <div class="col">
-                <div class="row">
-                    <label for="resolution_slider" class="light-text form-label" id="resolution_label">Resolution </label>
-                    <input type="range" class="form-range" id="resolution_slider" value="50" min="0" max="500" step="1">
-                </div>
-                <div class="row">
-                    <label for="offset_slider" class="light-text form-label" id="offset_label">Offset </label>
-                    <input type="range" class="form-range" id="offset_slider" value="1" min="0" max="50" step="1">
-                </div>
-                <div class="row">
-                    <label for="scale_slider" class="light-text form-label" id="scale_label">Scale</label>
-                    <input type="range" class="form-range" id="scale_slider" min="0" max="800" step="10">
-                </div>
-                <div class="row">
-                    <label for="pattern_select" class="light-text" id="pattern_label">Pattern Type</label>
-                    <select class="form-select" aria-label="patter type" id="pattern_select" >
-                      </select>
-                </div>
+    <div class="row">
+        <div class="col controls-container">
+            <div class="row">
+                <label for="resolution_slider" class="light-text form-label" id="resolution_label">Resolution
+                </label>
+                <input type="range" class="form-range" id="resolution_slider" value="50" min="0" max="500" step="1">
+            </div>
+            <div class="row">
+                <label for="offset_slider" class="light-text form-label" id="offset_label">Offset </label>
+                <input type="range" class="form-range" id="offset_slider" value="1" min="0" max="50" step="1">
+            </div>
+            <div class="row">
+                <label for="scale_slider" class="light-text form-label" id="scale_label">Scale</label>
+                <input type="range" class="form-range" id="scale_slider" min="0" max="800" step="10">
+            </div>
+            <div class="row">
+                <label for="figure_select" class="light-text" id="figure_label">Figure</label>
+                <select class="form-select" aria-label="figure type" id="figure_select">
+                </select>
+            </div>
+            <div class="row">
+                <label for="pattern_select" class="light-text" id="pattern_label">Pattern Type</label>
+                <select class="form-select" aria-label="pattern type" id="pattern_select">
+                </select>
+            </div>
+        </div>
+        <div class="col controls-container">
+            <div class="row">
+                <input class="form-check-input" type="checkbox" value="" id="mirrored_checkbox">
+                <label class="form-check-label light-text" for="mirrored_checkbox">Mirrored</label>
             </div>
         </div>
 
