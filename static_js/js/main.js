@@ -8,7 +8,7 @@ window.onload = function () {
     var canvas = document.getElementById('myCanvas');
     var values = {};
     values.origin = [250, 250];
-    values.color = "rgba(200,200,255,0.5)";
+    values.color = "rgba(200,200,255,.5)";
     values = manageUI(values, draw);
     paper.setup(canvas);
     draw(values);

@@ -86,7 +86,7 @@ export class RepeatedSquare extends RepeatedFigure {
 export class RepeatedHexagon extends RepeatedFigure {
     constructor(values) {
         super(values);
-        this.points_local = generateRegularPoligon(6, new paper.Point(1,1), new paper.Point(0.5,0.5));
+        this.points_local = generateRegularPoligon(6, new paper.Point(1,1), new paper.Point(0.6,0.6));
         this.figures = this.generateRotatedFigures(3, new paper.Point(1,1));
     }
 }
