@@ -1,4 +1,4 @@
-##Geometric Figures
+## Geometric Figures
 
 This is a simple test visualizer of some geometric pattern, using Paper.js.
 
@@ -7,7 +7,7 @@ This is a simple test visualizer of some geometric pattern, using Paper.js.
 <td><img src="./images/triangles_spiral.png" alt="6 triangles with a spiral pattern" style="max-height:350px"></td>
 </table></tr>
 
-##Install
+## Install
 
 Being a straightforward JS project, it's sufficient to clone the repo e run
 
@@ -15,7 +15,7 @@ Being a straightforward JS project, it's sufficient to clone the repo e run
 npm install
 ```
 
-####Run
+#### Run
 
 By default, the program runs from an express server at address `localhost:10000`. To run it this way, execute 
 ```bash
