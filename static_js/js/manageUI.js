@@ -22,8 +22,8 @@ export function manageUI(values, draw) {
         addSelectOption(pattern_select, key);
     }
     
-    figure_select.value = "Hexagon";
-    pattern_select.value = "spiral";
+    figure_select.value = "Triangle";
+    pattern_select.value = "simple";
 
 
     values = setValues(values);
