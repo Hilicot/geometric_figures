@@ -7,6 +7,8 @@ This is a simple test visualizer of some geometric pattern, using Paper.js.
 <td><img src="./images/triangles_spiral.png" alt="6 triangles with a spiral pattern" style="max-height:350px"></td>
 </table></tr>
 
+You can try to use the website [here](https://hilicot.github.io/geometric_figures/static_js/index.html)
+
 ## Install
 
 Being a straightforward JS project, it's sufficient to clone the repo e run
